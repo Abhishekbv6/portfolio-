@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek B V — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1116; --panel:#141922; --line:#232B37;
+  --text:#ECEDEF; --muted:#9AA3AE;
+  --amber:#E8A33D; --teal:#2FBFA5;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.55;overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.1}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+@media(max-width:640px){section{padding:64px 0}.wrap{padding:0 20px}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(14,17,22,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.navrow{max-width:900px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.navrow .name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem}
+.navrow .links{display:flex;gap:28px;font-size:.9rem;color:var(--muted)}
+.navrow .links a:hover{color:var(--amber)}
+@media(max-width:640px){.navrow .links{gap:16px;font-size:.82rem}}
+
+/* hero */
+.hero{padding:110px 0 90px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding:70px 0 50px}}
+.hero .kicker{color:var(--teal);font-size:.95rem;margin-bottom:14px}
+.hero h1{font-size:clamp(2.3rem,5.5vw,3.4rem);letter-spacing:-.01em}
+.hero .role{color:var(--muted);font-size:1.1rem;margin-top:16px;max-width:36ch}
+.hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{border:1px solid var(--amber);color:var(--amber);padding:11px 22px;border-radius:4px;font-size:.92rem;transition:.2s}
+.btn:hover{background:var(--amber);color:var(--ink)}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn.ghost:hover{border-color:var(--muted);color:var(--text);background:none}
+
+/* animated bar chart visual */
+.chartviz{height:220px;display:flex;align-items:flex-end;gap:10px;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.chartviz .bar{flex:1;background:linear-gradient(180deg,var(--amber),var(--teal));border-radius:2px 2px 0 0;animation:rise 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+.chartviz .bar{transform-origin:bottom}
+.chartviz .bar:nth-child(1){height:40%;animation-delay:.05s}
+.chartviz .bar:nth-child(2){height:70%;animation-delay:.15s}
+.chartviz .bar:nth-child(3){height:52%;animation-delay:.25s}
+.chartviz .bar:nth-child(4){height:88%;animation-delay:.35s}
+.chartviz .bar:nth-child(5){height:64%;animation-delay:.45s}
+.chartviz .bar:nth-child(6){height:100%;animation-delay:.55s}
+@media(prefers-reduced-motion:reduce){.chartviz .bar{animation:none;transform:none;opacity:1}}
+
+/* section heading */
+.eyebrow{color:var(--teal);font-size:.9rem;margin-bottom:10px}
+.sechead{font-size:clamp(1.6rem,3.5vw,2.1rem);margin-bottom:36px;max-width:26ch}
+
+/* about */
+.about p{color:var(--muted);max-width:68ch;margin-bottom:16px;font-size:1.02rem}
+.about p:last-child{margin-bottom:0}
+
+/* projects */
+.project{padding:32px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px auto 1fr auto;gap:20px;align-items:start}
+.project:last-child{border-bottom:1px solid var(--line)}
+@media(max-width:640px){.project{grid-template-columns:36px 1fr}}
+.picon{width:44px;height:44px;border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;background:var(--panel)}
+.picon svg{width:22px;height:22px}
+@media(max-width:640px){.project .pnum{display:none}}
+.project .pnum{color:var(--muted);font-size:.85rem}
+.project h3{font-size:1.25rem;margin-bottom:8px}
+.project p{color:var(--muted);font-size:.96rem;max-width:60ch;margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.78rem;color:var(--teal);border:1px solid var(--line);padding:3px 9px;border-radius:100px}
+.plinks{display:flex;gap:16px;font-size:.85rem;white-space:nowrap}
+.plinks a{color:var(--amber);border-bottom:1px solid transparent}
+.plinks a:hover{border-color:var(--amber)}
+
+/* stack */
+.stackgroup{margin-bottom:28px}
+.stackgroup h4{font-size:.85rem;color:var(--muted);font-weight:500;margin-bottom:12px}
+.stackitems{display:flex;flex-wrap:wrap;gap:10px}
+.stackitems span{font-size:.92rem;padding:7px 14px;border:1px solid var(--line);border-radius:4px;background:var(--panel)}
+
+/* journey */
+.tl{position:relative;padding-left:28px;border-left:1px solid var(--line)}
+.tlitem{position:relative;padding-bottom:34px}
+.tlitem:last-child{padding-bottom:0}
+.tlitem::before{content:'';position:absolute;left:-33px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--amber)}
+.tlitem .when{color:var(--teal);font-size:.85rem;margin-bottom:4px}
+.tlitem h3{font-size:1.1rem;margin-bottom:3px}
+.tlitem p{color:var(--muted);font-size:.92rem}
+
+/* contact */
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:20px;max-width:20ch}
+.contact p{color:var(--muted);margin-bottom:32px;max-width:50ch}
+.clinks{display:flex;flex-direction:column;gap:14px}
+.clinks a{font-size:1.1rem;display:inline-flex;align-items:center;gap:10px}
+.clinks a:hover{color:var(--amber)}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navrow">
+    <div class="name">Abhishek B V</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="kicker">Bengaluru, India</div>
+      <h1>Abhishek B V</h1>
+      <p class="role">Data Analyst moving toward AI engineering — I build agentic AI systems that plan, use tools, and act, on top of a foundation in segmentation, churn prediction, and forecasting.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">See the work</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="chartviz" aria-hidden="true">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="eyebrow">About</div>
+    <h2 class="sechead">From spreadsheets to systems that reason</h2>
+    <div class="about">
+      <p>I work as a Data Analyst while completing an MCA, and the two feed each other constantly — coursework gives me the theory, day-to-day analyst work gives me the mess of real data to test it on. I'm most at home somewhere between a clean dashboard and a messy dataset that hasn't decided what it wants to say yet.</p>
+      <p>My core work is analytics and machine learning: segmentation, churn models, demand forecasting. More recently I've been moving deliberately toward AI engineering — building systems where a language model doesn't just answer a question but plans, calls tools, and completes a task end to end.</p>
+      <p>I mapped out a 12-phase agentic AI roadmap for myself, from Python and math foundations through multi-agent systems and deployment, and I'm working through it in order. I build the agent loop by hand before reaching for a framework, and treat Pydantic and async as non-negotiable rather than optional — the goal is to actually understand what a framework like LangGraph is doing underneath, not just call it.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow">Projects</div>
+    <h2 class="sechead">Things I've built</h2>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--amber)"><rect x="4" y="7" width="16" height="12" rx="2"/><circle cx="9" cy="13" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1.3" fill="currentColor" stroke="none"/><path d="M12 7V4M9 4h6"/></svg></div>
+      <div class="pnum">01</div>
+      <div>
+        <h3>AI Candidate Screening Agent</h3>
+        <p>An agentic AI system that reads a job requirement, reasons over candidate profiles against it, and screens them autonomously — not a single prompt-and-response, but a planning agent built on LangGraph with Gemini as the reasoning engine. It decides which candidates to shortlist and why, and exposes the whole flow through a Gradio interface so a non-technical user can run it without touching code.</p>
+        <div class="tags"><span class="tag">LangGraph</span><span class="tag">Gemini</span><span class="tag">Gradio</span><span class="tag">Python</span><span class="tag">Agentic AI</span></div>
+      </div>
+      <div class="plinks"><a href="https://github.com/Abhishekbv6/agenticaiproject" target="_blank" rel="noopener">Source</a></div>
+    </div>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--teal)"><path d="M4 20V10M10 20V4M16 20v-7M22 20V8"/></svg></div>
+      <div class="pnum">02</div>
+      <div>
+        <h3>Customer Sales Behaviour Analysis</h3>
+        <p>An end-to-end customer analytics pipeline: RFM segmentation to group customers by recency, frequency and spend, K-Means clustering to find natural customer segments, an XGBoost model to predict who's likely to churn, and SARIMA forecasting to project future demand — built as an internship report project on real sales-behaviour patterns.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">SARIMA</span><span class="tag">Scikit-learn</span></div>
+      </div>
+      <div class="plinks"></div>
+    </div>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--amber)"><circle cx="12" cy="12" r="8"/><path d="M12 9v3l2 2"/></svg></div>
+      <div class="pnum">03</div>
+      <div>
+        <h3>Hyper Tune ML Platform</h3>
+        <p>An interactive Streamlit app for tuning ML model hyperparameters and comparing performance across configurations side by side — built to make the usually invisible trial-and-error of model tuning visible and explorable.</p>
+        <div class="tags"><span class="tag">Streamlit</span><span class="tag">Scikit-learn</span><span class="tag">Python</span></div>
+      </div>
+      <div class="plinks"></div>
+    </div>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--teal)"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div>
+      <div class="pnum">04</div>
+      <div>
+        <h3>Retail Store Sales Insights &amp; Prediction</h3>
+        <p>A two-phase academic project: first exploratory data analysis to surface patterns in retail sales, then a predictive-modeling phase using Pandas and XGBoost for prediction and ARIMA for time-series forecasting — structured as a full data-science project document, not just a notebook.</p>
+        <div class="tags"><span class="tag">Pandas</span><span class="tag">XGBoost</span><span class="tag">ARIMA</span></div>
+      </div>
+      <div class="plinks"></div>
+    </div>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--amber)"><rect x="3" y="8" width="18" height="10" rx="2"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/><path d="M3 12h18"/></svg></div>
+      <div class="pnum">05</div>
+      <div>
+        <h3>Bus Pass Management System</h3>
+        <p>A full CRUD web application for issuing, renewing and managing bus passes — user records, pass validity and admin operations all backed by a relational MySQL database behind a PHP application layer.</p>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+      </div>
+      <div class="plinks"></div>
+    </div>
+
+    <div class="project">
+      <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--teal)"><path d="M6 9h11a3 3 0 010 6h-1M6 9v7a3 3 0 003 3h4a3 3 0 003-3v-1M6 9V6h9v3"/></svg></div>
+      <div class="pnum">06</div>
+      <div>
+        <h3>Coffee Sales Analysis</h3>
+        <p>A sales analysis and reporting exercise built entirely in Excel — cleaning raw transaction data, building pivot summaries, and turning them into a clear read on sales trends without writing a line of code.</p>
+        <div class="tags"><span class="tag">Excel</span></div>
+      </div>
+      <div class="plinks"></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="eyebrow">Stack</div>
+    <h2 class="sechead">Languages &amp; tools</h2>
+
+    <div class="stackgroup">
+      <h4>Languages</h4>
+      <div class="stackitems">
+        <span>Python</span><span>SQL</span><span>PHP</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span>
+      </div>
+    </div>
+    <div class="stackgroup">
+      <h4>Data & ML</h4>
+      <div class="stackitems">
+        <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>XGBoost</span><span>ARIMA / SARIMA</span><span>Excel</span><span>Power BI</span>
+      </div>
+    </div>
+    <div class="stackgroup">
+      <h4>Agentic AI</h4>
+      <div class="stackitems">
+        <span>LangGraph</span><span>Gemini API</span><span>Pydantic</span><span>Async Python</span><span>Multi-agent systems</span><span>Streamlit</span><span>Gradio</span>
+      </div>
+    </div>
+    <div class="stackgroup">
+      <h4>Tools</h4>
+      <div class="stackitems">
+        <span>MySQL</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Jupyter</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="eyebrow">Journey</div>
+    <h2 class="sechead">How I got here</h2>
+    <div class="tl">
+      <div class="tlitem">
+        <div class="when">Present</div>
+        <h3>MCA — VTU Centre for Post Graduate Studies</h3>
+        <p>Muddenahalli, building on data science, ML and analytics fundamentals.</p>
+      </div>
+      <div class="tlitem">
+        <div class="when">Ongoing</div>
+        <h3>Data Analyst</h3>
+        <p>Working on data science and analytics, day to day.</p>
+      </div>
+      <div class="tlitem">
+        <div class="when">Internship</div>
+        <h3>Data Science Intern — Nyeras Edu-Tech and Innovations</h3>
+        <p>Applied ML methodology on real analytics projects.</p>
+      </div>
+      <div class="tlitem">
+        <div class="when">Self-directed</div>
+        <h3>Agentic AI &amp; AI Engineering</h3>
+        <p>Mapped a 12-phase roadmap from foundations to multi-agent systems, and shipped an agentic candidate-screening system built on LangGraph and Gemini.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's build something worth analyzing.</h2>
+    <p>Looking for roles in agentic AI and data — analytics, machine learning, or building the agents that automate them. Let's talk.</p>
+    <div class="clinks">
+      <a href="mailto:abhishekabhi4716@gmail.com">abhishekabhi4716@gmail.com</a>
+      <a href="https://github.com/Abhishekbv6" target="_blank" rel="noopener">github.com/Abhishekbv6</a>
+      <a href="https://www.linkedin.com/in/abhishek-60376a233" target="_blank" rel="noopener">linkedin.com/in/abhishek-60376a233</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Abhishek B V</span>
+    <span>Bengaluru, India</span>
+  </footer>
+</div>
+
+</body>
+</html>
