@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5f4ee">
+  <meta name="theme-color" content="#f4f2eb">
   <meta name="description" content="Abhishek B V — MCA student and aspiring AI engineer exploring agentic AI, RAG, machine learning, and analytics.">
   <title>Abhishek B V — AI & Data Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,108 +12,131 @@
   <style>
     :root {
       color-scheme: light;
-      --paper: #f5f4ee;
-      --paper-deep: #ebeae2;
-      --ink: #162b27;
-      --muted: #64736d;
-      --line: #d9ddd5;
-      --forest: #174e40;
-      --lime: #d4f36a;
+      --paper: #f4f2eb;
+      --paper-2: #e9e8df;
+      --ink: #172b27;
+      --muted: #66746e;
+      --line: #d8ddd4;
+      --green: #174c3f;
+      --lime: #d8f277;
       --white: #fffefa;
-      --mono: "DM Mono", monospace;
       --sans: "Manrope", sans-serif;
+      --mono: "DM Mono", monospace;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
     body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.65 var(--sans); }
     a { color: inherit; }
-    a:focus-visible { outline: 3px solid #9ebd31; outline-offset: 4px; border-radius: 3px; }
-    .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
-    .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 24px; }
-    .brand { display: inline-flex; flex: none; align-items: center; gap: 11px; white-space: nowrap; text-decoration: none; font-weight: 800; letter-spacing: -.04em; }
-    .brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: var(--lime); background: var(--forest); font: 500 13px var(--mono); letter-spacing: -.08em; }
+    a:focus-visible { outline: 3px solid #93ae37; outline-offset: 4px; border-radius: 4px; }
+    .shell { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: 12px; top: 12px; z-index: 10; transform: translateY(-160%); padding: 10px 14px; border-radius: 8px; background: var(--green); color: white; }
+    .skip-link:focus { transform: translateY(0); }
+    .topbar { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.045em; text-decoration: none; white-space: nowrap; }
+    .brand-mark { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: var(--green); color: var(--lime); font: 500 12px var(--mono); letter-spacing: -.08em; }
     nav { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }
-    nav a { color: var(--muted); font-size: 13px; font-weight: 700; text-decoration: none; transition: color .2s; }
-    nav a:hover { color: var(--forest); }
+    nav a { color: var(--muted); font-size: 12px; font-weight: 700; text-decoration: none; transition: color .2s ease; }
+    nav a:hover { color: var(--green); }
     .nav-cta { padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); }
-    .hero { position: relative; isolation: isolate; overflow: hidden; padding: clamp(60px, 10vw, 128px) 0 88px; }
-    .hero::before { position: absolute; z-index: -1; content: ""; width: 620px; height: 620px; right: -140px; top: -145px; border-radius: 50%; background: radial-gradient(circle, rgba(212,243,106,.3), rgba(212,243,106,0) 68%); }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 24px; color: var(--forest); font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 8px; height: 8px; background: #85a921; border-radius: 50%; box-shadow: 0 0 0 4px rgba(133,169,33,.13); }
+    .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(270px, .65fr); align-items: center; gap: clamp(36px, 7vw, 90px); padding-block: clamp(54px, 8vw, 104px) 78px; }
+    .hero-copy { position: relative; z-index: 1; }
+    .eyebrow, .section-kicker { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; color: var(--green); font: 500 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { width: 7px; height: 7px; border-radius: 50%; background: #83a72b; box-shadow: 0 0 0 4px rgba(131,167,43,.14); content: ""; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 860px; margin-bottom: 24px; font-size: clamp(46px, 8.3vw, 100px); line-height: .99; letter-spacing: -.075em; font-weight: 600; }
-    h1 span { color: var(--forest); }
-    .hero-copy { max-width: 610px; margin-bottom: 30px; color: var(--muted); font-size: clamp(17px, 2.2vw, 20px); line-height: 1.7; }
-    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; white-space: nowrap; border: 1px solid var(--forest); border-radius: 999px; background: var(--forest); color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
-    .button:hover { transform: translateY(-2px); background: #0f3e33; }
-    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    h1 { max-width: 740px; margin-bottom: 22px; font-size: clamp(48px, 7.5vw, 91px); line-height: .99; letter-spacing: -.078em; font-weight: 600; }
+    h1 span { color: var(--green); }
+    .intro { max-width: 600px; margin-bottom: 28px; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.75; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 11px; padding: 0 19px; border: 1px solid var(--green); border-radius: 999px; background: var(--green); color: var(--white); font-size: 12px; font-weight: 800; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); background: #0e3d32; }
+    .button.secondary { border-color: var(--line); background: transparent; color: var(--ink); }
     .button.secondary:hover { background: var(--white); }
-    .arrow { font-size: 16px; }
-    .hero-note { display: flex; gap: 14px; align-items: flex-start; margin-top: 70px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font: 12px/1.7 var(--mono); }
-    .hero-note strong { color: var(--ink); font-weight: 500; }
-    .hero-note .note-label { color: var(--forest); text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
-    .section { padding: 78px 0; border-top: 1px solid var(--line); }
-    .section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
-    .section-kicker { margin: 0 0 10px; color: var(--forest); font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-    h2 { margin-bottom: 0; font-size: clamp(32px, 5vw, 52px); line-height: 1.08; letter-spacing: -.065em; font-weight: 600; }
-    .section-intro { max-width: 360px; margin: 8px 0 0; color: var(--muted); font-size: 14px; }
-    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 8vw, 105px); align-items: start; }
-    .about-copy { max-width: 620px; color: var(--muted); font-size: 17px; }
+    .arrow { font-size: 15px; }
+    .hero-art { position: relative; min-height: 390px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(100%, 360px); aspect-ratio: 1; border: 1px solid #c9d2c7; border-radius: 50%; }
+    .orbit::before, .orbit::after { position: absolute; inset: 13%; border: 1px solid #d4dbd0; border-radius: 50%; content: ""; }
+    .orbit::after { inset: 27%; }
+    .orbit-dot { position: absolute; top: 12%; right: 16%; width: 11px; height: 11px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 6px rgba(216,242,119,.25); }
+    .signal-card { position: relative; width: min(100%, 300px); padding: 24px; border: 1px solid #dfe3dc; border-radius: 18px; background: rgba(255,254,250,.94); box-shadow: 0 24px 70px rgba(22,43,39,.09); transform: rotate(-3deg); }
+    .signal-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; color: var(--muted); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .signal-state { display: inline-flex; align-items: center; gap: 7px; color: var(--green); }
+    .signal-state::before { width: 6px; height: 6px; border-radius: 50%; background: #86a82d; content: ""; }
+    .signal-card h2 { margin-bottom: 8px; font-size: 25px; line-height: 1.15; letter-spacing: -.06em; }
+    .signal-card p { margin-bottom: 26px; color: var(--muted); font-size: 12px; }
+    .signal-bars { display: flex; height: 76px; align-items: end; gap: 7px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+    .signal-bars i { flex: 1; min-height: 18%; border-radius: 4px 4px 0 0; background: #d9e3ce; }
+    .signal-bars i:nth-child(2n) { background: #a8c17c; }
+    .signal-bars i:nth-child(3n) { background: var(--green); }
+    .signal-bars i:nth-child(1) { height: 30%; }.signal-bars i:nth-child(2) { height: 47%; }.signal-bars i:nth-child(3) { height: 38%; }.signal-bars i:nth-child(4) { height: 66%; }.signal-bars i:nth-child(5) { height: 51%; }.signal-bars i:nth-child(6) { height: 79%; }.signal-bars i:nth-child(7) { height: 61%; }.signal-bars i:nth-child(8) { height: 95%; }
+    .hero-note { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: baseline; margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font: 11px/1.7 var(--mono); }
+    .note-label { color: var(--green); letter-spacing: .08em; text-transform: uppercase; }
+    .hero-note strong { color: var(--ink); font-weight: 400; }
+    .section { padding-block: 76px; border-top: 1px solid var(--line); }
+    .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 36px; }
+    .section-kicker { display: block; margin-bottom: 10px; }
+    h2.section-title { margin-bottom: 0; font-size: clamp(32px, 4.7vw, 54px); line-height: 1.06; letter-spacing: -.068em; font-weight: 600; }
+    .section-intro { max-width: 360px; margin: 0 0 4px; color: var(--muted); font-size: 13px; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(32px, 8vw, 105px); align-items: start; }
+    .about-copy { max-width: 650px; color: var(--muted); font-size: 15px; }
     .about-copy p:last-child { margin-bottom: 0; }
-    .focus-card { padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
-    .focus-card h3 { margin-bottom: 17px; font-size: 14px; letter-spacing: -.02em; }
+    .focus-card { padding: 23px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+    .focus-card h3 { margin-bottom: 16px; font-size: 13px; letter-spacing: -.02em; }
     .focus-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { padding: 7px 10px; border-radius: 999px; background: var(--paper-deep); color: var(--forest); font: 11px var(--mono); }
+    .tag { padding: 7px 10px; border-radius: 999px; background: var(--paper-2); color: var(--green); font: 10px var(--mono); }
     .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .work-card { display: flex; min-height: 260px; flex-direction: column; padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); transition: transform .2s, border-color .2s, box-shadow .2s; }
+    .work-card { display: flex; min-height: 255px; flex-direction: column; padding: 21px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
     .work-card:hover { transform: translateY(-4px); border-color: #aab9ae; box-shadow: 0 12px 32px rgba(22,43,39,.07); }
-    .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: auto; }
-    .card-index { color: var(--muted); font: 11px var(--mono); }
-    .card-icon { display: grid; width: 43px; height: 43px; place-items: center; border: 1px solid var(--line); border-radius: 12px; color: var(--forest); font: 15px var(--mono); }
-    .work-card h3 { margin: 36px 0 9px; font-size: 19px; line-height: 1.25; letter-spacing: -.04em; }
-    .work-card p { margin-bottom: 18px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .card-top { display: flex; justify-content: space-between; align-items: center; }
+    .card-index { color: var(--muted); font: 10px var(--mono); letter-spacing: .05em; }
+    .card-icon { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 11px; color: var(--green); font: 14px var(--mono); }
+    .work-card h3 { margin: auto 0 9px; padding-top: 26px; font-size: 17px; line-height: 1.3; letter-spacing: -.04em; }
+    .work-card p { margin-bottom: 17px; color: var(--muted); font-size: 12px; line-height: 1.75; }
     .card-bottom { display: flex; flex-wrap: wrap; gap: 6px; }
-    .card-bottom span { padding: 5px 8px; border-radius: 5px; background: var(--paper); color: var(--muted); font: 10px var(--mono); }
-    .experience { display: grid; grid-template-columns: 180px 1fr; gap: 30px; padding: 25px 0; border-top: 1px solid var(--line); }
+    .card-bottom span { padding: 5px 8px; border-radius: 5px; background: var(--paper); color: var(--muted); font: 9px var(--mono); }
+    .experience { display: grid; grid-template-columns: 185px 1fr; gap: 28px; padding: 23px 0; border-top: 1px solid var(--line); }
     .experience:last-child { border-bottom: 1px solid var(--line); }
-    .experience time { color: var(--muted); font: 11px var(--mono); }
-    .experience h3 { margin-bottom: 5px; font-size: 18px; letter-spacing: -.03em; }
-    .experience .role { margin-bottom: 9px; color: var(--forest); font-size: 13px; font-weight: 700; }
-    .experience p:last-child { max-width: 640px; margin-bottom: 0; color: var(--muted); font-size: 14px; }
-    .contact { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: clamp(28px, 5vw, 52px); border-radius: 20px; background: var(--forest); color: var(--white); }
+    .experience time { color: var(--muted); font: 10px/1.6 var(--mono); letter-spacing: .04em; }
+    .experience h3 { margin-bottom: 5px; font-size: 17px; letter-spacing: -.03em; }
+    .experience .role { margin-bottom: 8px; color: var(--green); font-size: 12px; font-weight: 800; }
+    .experience p:last-child { max-width: 640px; margin-bottom: 0; color: var(--muted); font-size: 13px; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: clamp(28px, 5vw, 50px); border-radius: 20px; background: var(--green); color: var(--white); }
     .contact .section-kicker { color: var(--lime); }
-    .contact h2 { max-width: 600px; }
-    .contact p { margin: 13px 0 0; color: rgba(255,255,255,.72); font-size: 14px; }
+    .contact h2 { max-width: 600px; margin-bottom: 10px; font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -.06em; }
+    .contact p { margin: 0; color: rgba(255,255,255,.72); font-size: 13px; }
     .contact .button { flex: none; border-color: var(--lime); background: var(--lime); color: var(--ink); }
-    .contact .button:hover { background: #e1ff89; }
-    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0 34px; color: var(--muted); font: 11px var(--mono); }
+    .contact .button:hover { background: #e4ff8f; }
+    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 25px 32px; color: var(--muted); font: 10px var(--mono); }
     footer a { text-decoration: none; }
-    footer a:hover { color: var(--forest); }
+    footer a:hover { color: var(--green); }
     @media (max-width: 760px) {
-      .shell { width: min(100% - 36px, 600px); }
-      .topbar { min-height: 70px; }
-      nav { gap: 15px; }
-      nav a { font-size: 12px; }
-      .nav-cta { padding: 8px 11px; }
-      .hero { padding: 66px 0 58px; }
-      .hero-note { margin-top: 48px; }
-      .section { padding: 60px 0; }
+      .shell { width: min(calc(100% - 36px), 600px); }
+      .topbar { min-height: 72px; }
+      nav { gap: 14px; }
+      nav a { font-size: 11px; }
+      .hero { grid-template-columns: 1fr; gap: 8px; padding-block: 56px 56px; }
+      .hero-art { min-height: 300px; }
+      .orbit { width: 285px; }
+      .signal-card { width: min(290px, 88%); }
+      .section { padding-block: 58px; }
       .section-head { display: block; }
-      .section-intro { margin-top: 16px; }
-      .about-grid { grid-template-columns: 1fr; gap: 26px; }
+      .section-intro { margin-top: 15px; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
       .work-grid { grid-template-columns: 1fr; }
-      .work-card { min-height: 220px; }
-      .experience { grid-template-columns: 1fr; gap: 8px; }
+      .work-card { min-height: 205px; }
+      .experience { grid-template-columns: 1fr; gap: 7px; }
       .contact { align-items: flex-start; flex-direction: column; }
     }
     @media (max-width: 440px) {
       .shell { width: calc(100% - 32px); }
       .brand { font-size: 14px; }
-      nav { gap: 11px; }
-      nav a { font-size: 11px; }
+      nav { gap: 10px; }
+      nav a { font-size: 10px; }
       nav a:first-child { display: none; }
-      .hero-note { flex-direction: column; gap: 5px; }
+      nav { flex: none; gap: 8px; }
+      nav a:nth-child(3) { display: none; }
+      .nav-cta { padding: 8px 9px; white-space: nowrap; }
+      .hero-note { flex-direction: column; gap: 4px; }
+      .hero-art { min-height: 270px; }
       footer { align-items: flex-start; flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -122,40 +145,35 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="shell">
     <div class="topbar">
       <a class="brand" href="#top" aria-label="Abhishek B V, home"><span class="brand-mark" aria-hidden="true">AB</span><span>Abhishek B V</span></a>
       <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a class="nav-cta" href="#contact">Let&apos;s connect <span aria-hidden="true">↗</span></a>
+        <a href="#about">About</a><a href="#work">Explorations</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let&apos;s connect <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
-  <main id="top">
-    <section class="hero shell" aria-labelledby="hero-title">
-      <p class="eyebrow">AI · Data · Building with purpose</p>
-      <h1 id="hero-title">Curious by nature.<br><span>Building what&apos;s next.</span></h1>
-      <p class="hero-copy">I&apos;m Abhishek — an MCA student and aspiring AI engineer exploring how intelligent systems can turn complex ideas into useful, human-centered tools.</p>
-      <div class="hero-actions">
-        <a class="button" href="#work">Explore my work <span class="arrow" aria-hidden="true">↓</span></a>
-        <a class="button secondary" href="https://github.com/Abhishekbv6" target="_blank" rel="noreferrer">GitHub profile <span class="arrow" aria-hidden="true">↗</span></a>
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">AI · Data · Building with purpose</p>
+        <h1 id="hero-title">Curious by nature.<br><span>Building what&apos;s next.</span></h1>
+        <p class="intro">I&apos;m Abhishek — an MCA student and aspiring AI engineer exploring how intelligent systems can turn complex ideas into useful, human-centered tools.</p>
+        <div class="actions"><a class="button" href="#work">Explore my work <span class="arrow" aria-hidden="true">↓</span></a><a class="button secondary" href="https://github.com/Abhishekbv6" target="_blank" rel="noopener noreferrer">GitHub profile <span class="arrow" aria-hidden="true">↗</span></a></div>
+        <div class="hero-note"><span class="note-label">Currently exploring</span><strong>Agentic AI · Retrieval-augmented generation · Machine learning · Analytics</strong></div>
       </div>
-      <div class="hero-note"><span class="note-label">Currently exploring</span><strong>Agentic AI · Retrieval-augmented generation · Machine learning · Analytics</strong></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"><span class="orbit-dot"></span></div><div class="signal-card"><div class="signal-top"><span>Field notes / 01</span><span class="signal-state">In progress</span></div><h2>Ideas into<br>intelligent systems.</h2><p>Learning through data, experimentation, and thoughtful builds.</p><div class="signal-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
     </section>
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="shell">
-        <div class="section-head"><div><p class="section-kicker">01 / A little about me</p><h2 id="about-title">Learn by doing.<br>Build with intention.</h2></div><p class="section-intro">A foundation in data science, with a growing focus on practical AI and the systems that make it useful.</p></div>
-        <div class="about-grid">
-          <div class="about-copy"><p>I&apos;m pursuing a Master of Computer Applications and have hands-on experience from a data science internship. I enjoy moving between data, software, and AI — asking good questions, testing ideas, and making the results easier to use.</p><p>My current interests include agentic workflows, RAG systems, machine learning, and analytics. I&apos;m looking for an opportunity to contribute, keep learning, and help build thoughtful AI products.</p></div>
-          <aside class="focus-card" aria-label="Areas of focus"><h3>Areas I&apos;m focused on</h3><div class="focus-list"><span class="tag">Agentic AI</span><span class="tag">RAG</span><span class="tag">Machine learning</span><span class="tag">Data science</span><span class="tag">Analytics</span></div></aside>
-        </div>
+        <div class="section-head"><div><p class="section-kicker">01 / A little about me</p><h2 class="section-title" id="about-title">Learn by doing.<br>Build with intention.</h2></div><p class="section-intro">A foundation in data science, with a growing focus on practical AI and the systems that make it useful.</p></div>
+        <div class="about-grid"><div class="about-copy"><p>I&apos;m pursuing a Master of Computer Applications and have hands-on experience from a data science internship. I enjoy moving between data, software, and AI — asking good questions, testing ideas, and making the results easier to use.</p><p>My current interests include agentic workflows, RAG systems, machine learning, and analytics. I&apos;m looking for an opportunity to contribute, keep learning, and help build thoughtful AI products.</p></div><aside class="focus-card" aria-label="Areas of focus"><h3>Areas I&apos;m focused on</h3><div class="focus-list"><span class="tag">Agentic AI</span><span class="tag">RAG</span><span class="tag">Machine learning</span><span class="tag">Data science</span><span class="tag">Analytics</span></div></aside></div>
       </div>
     </section>
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="shell">
-        <div class="section-head"><div><p class="section-kicker">02 / Selected directions</p><h2 id="work-title">Where ideas take shape.</h2></div><p class="section-intro">A snapshot of the areas I&apos;m exploring through projects and hands-on learning.</p></div>
+        <div class="section-head"><div><p class="section-kicker">02 / Areas of exploration</p><h2 class="section-title" id="work-title">Where ideas take shape.</h2></div><p class="section-intro">The questions and technologies guiding my projects and hands-on learning.</p></div>
         <div class="work-grid">
           <article class="work-card"><div class="card-top"><span class="card-index">01 — SYSTEMS</span><span class="card-icon" aria-hidden="true">↗</span></div><h3>Agentic AI</h3><p>Exploring how tool-using agents can plan, make decisions, and help complete useful multi-step tasks.</p><div class="card-bottom"><span>LLMs</span><span>Tool use</span><span>Workflows</span></div></article>
           <article class="work-card"><div class="card-top"><span class="card-index">02 — KNOWLEDGE</span><span class="card-icon" aria-hidden="true">⌕</span></div><h3>Retrieval-augmented generation</h3><p>Connecting language models with relevant source material to make answers more grounded and useful.</p><div class="card-bottom"><span>RAG</span><span>Search</span><span>Evaluation</span></div></article>
@@ -165,13 +183,13 @@
     </section>
     <section class="section" id="experience" aria-labelledby="experience-title">
       <div class="shell">
-        <div class="section-head"><div><p class="section-kicker">03 / Experience & learning</p><h2 id="experience-title">Grounded in data.<br>Growing into AI.</h2></div></div>
+        <div class="section-head"><div><p class="section-kicker">03 / Experience & learning</p><h2 class="section-title" id="experience-title">Grounded in data.<br>Growing into AI.</h2></div></div>
         <article class="experience"><time>MCA · IN PROGRESS</time><div><h3>Master of Computer Applications</h3><p class="role">Computer applications & applied technology</p><p>Building a strong foundation in computing while exploring intelligent systems, machine learning, and data-driven problem solving.</p></div></article>
         <article class="experience"><time>HANDS-ON EXPERIENCE</time><div><h3>Data Science Internship</h3><p class="role">Data science · Applied learning</p><p>Gained practical exposure to data science work and strengthened my interest in turning data into meaningful outcomes.</p></div></article>
       </div>
     </section>
     <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="shell"><div class="contact"><div><p class="section-kicker">04 / Get in touch</p><h2 id="contact-title">Let&apos;s make something meaningful.</h2><p>Open to entry-level and internship opportunities in AI and data.</p></div><a class="button" href="https://github.com/Abhishekbv6" target="_blank" rel="noreferrer">Connect on GitHub <span class="arrow" aria-hidden="true">↗</span></a></div></div>
+      <div class="shell"><div class="contact"><div><p class="section-kicker">04 / Get in touch</p><h2 id="contact-title">Let&apos;s make something meaningful.</h2><p>Open to entry-level and internship opportunities in AI and data.</p></div><a class="button" href="https://github.com/Abhishekbv6" target="_blank" rel="noopener noreferrer">Connect on GitHub <span class="arrow" aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
   <footer class="shell"><span>© <span id="year">2026</span> Abhishek B V</span><a href="#top">Back to top ↑</a></footer>
